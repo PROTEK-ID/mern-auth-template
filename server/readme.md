@@ -11,4 +11,4 @@
 - DELETE `/api/auth/token`
   user signout and clear 'refreshToken' from cookie.
 
-for all the body and data that is needed for each route, please checkout the [controller file](./server/src/routes/auth/controller.ts).
+for all the body and data that is needed for each route, please checkout the [controller file](./src/routes/auth/controller.ts).
