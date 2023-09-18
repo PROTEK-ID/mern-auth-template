@@ -21,6 +21,4 @@ for (const [key, value] of Object.entries(process.env)) {
   else continue;
 }
 
-console.log(env);
-
 export default env;
