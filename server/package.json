@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/app.js",
   "scripts": {
-    "start": "NODE_ENV=production node ./dist/app.js",
+    "start": "node ./dist/app.js",
     "dev": "nodemon --exec \"tsx src/app.ts\" -e ts,js,json,mjs,cjs",
     "build": "tsc",
     "init": "tsc --init"
