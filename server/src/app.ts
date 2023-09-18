@@ -40,6 +40,7 @@ async function start() {
   if (env?.NODE_ENV === "production") {
     const staticPath = join(__dirname, "..", "dist", "public");
     app.use(express.static(staticPath));
+    app.get("*", (req, res) => res.sendFile(join(__dirname, "public", "index.html")));
   }
 
   server = app.listen(PORT, () => {
