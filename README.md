@@ -35,4 +35,12 @@ npm run dev
 
 ## deploy
 customize the install command to follow the [installation part](#installation), if `start` command failed, customize it to look like this `npm start --prefix server`,
-this is sometimes happen when npm cannot be used inside package.json a.k.a internal npm command through npm command.
+this is sometimes happen when npm cannot be used inside package.json a.k.a internal npm command through npm command. make sure you set `NODE_ENV` variable to "production".
+
+### note
+if you deploy in a subroute of your hosting url, for example `https://mysite.com/myproject`:
+
+1. in `{root}/.env` add `BASE_PATH = /myproject`.
+2. create `.env` file in client (`{root}/client/.env`), then add `VITE_BASENAME = /myproject/`.
+
+you could modify `/myproject` to follow your subroute of your hosting provider.
