@@ -11,6 +11,7 @@ import apiRouterHandler from "./routes";
 import errorMiddleware from "./middlewares/error";
 
 let server: HttpsServer | HttpServer | null;
+const BASE_PATH = env?.BASE_PATH || "";
 const PORT = env?.PORT || 8080;
 
 function defineApp(app: Express) {
@@ -29,7 +30,7 @@ function defineApp(app: Express) {
     })
   );
   app.use(cookieParser());
-  app.use("/api", apiRouterHandler, errorMiddleware);
+  app.use(BASE_PATH + "/api", apiRouterHandler, errorMiddleware);
 }
 
 async function start() {
@@ -39,8 +40,8 @@ async function start() {
 
   if (env?.NODE_ENV === "production") {
     const staticPath = join(__dirname, "..", "dist", "public");
-    app.use(express.static(staticPath));
-    app.get("*", (req, res) => res.sendFile(join(__dirname, "public", "index.html")));
+    app.use(BASE_PATH, express.static(staticPath));
+    app.get(BASE_PATH + "/*", (req, res) => res.sendFile(join(__dirname, "..", "dist" "public", "index.html")));
   }
 
   server = app.listen(PORT, () => {
