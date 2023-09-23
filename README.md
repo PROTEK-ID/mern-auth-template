@@ -39,8 +39,11 @@ this is sometimes happen when npm cannot be used inside package.json a.k.a inter
 
 ### note
 if you deploy in a subroute of your hosting url, for example `https://mysite.com/myproject`:
-
-1. in `{root}/.env` add `BASE_PATH = /myproject`.
-2. create `.env` file in client (`{root}/client/.env`), then add `VITE_BASENAME = /myproject/`.
+<br />
+in `{root}/.env` add 
+```bash
+BASE_PATH = /myproject
+VITE_BASENAME = /myproject
+```
 
 you could modify `/myproject` to follow your subroute of your hosting provider.
