@@ -5,13 +5,13 @@
   "main": "server/dist/app.js",
   "scripts": {
     "start": "npm start --prefix server",
-    "build:client": "npm run build --prefix client",
+    "build:client": "cp .env client/.env; npm run build --prefix client",
     "build:server": "npm run build --prefix server",
     "build": "npm-run-all build:server build:client",
-    "dev:client": "npm run dev --prefix client",
+    "dev:client": "cp .env client/.env; npm run dev --prefix client",
     "dev:server": "npm run dev --prefix server",
     "dev": "npm-run-all -p -r dev:server dev:client",
-    "install:client": "npm install --prefix client",
+    "install:client": "cp .env client/.env; npm install --prefix client",
     "install:server": "npm install --prefix server",
     "install": "npm-run-all install:server install:client"
   },
