@@ -2,7 +2,7 @@
   "name": "auth-1",
   "version": "1.0.0",
   "description": "",
-  "main": "server/dist/app.js",
+  "main": "server/build/generated/app.js",
   "scripts": {
     "start": "npm start --prefix server",
     "build:client": "cp .env client/.env; npm run build --prefix client",
