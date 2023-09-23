@@ -2,11 +2,11 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/app.js",
+  "main": "generated/app.js",
   "scripts": {
-    "start": "node ./dist/app.js",
+    "start": "node ./generated/app.js",
     "dev": "nodemon --exec \"tsx src/app.ts\" -e ts,js,json,mjs,cjs",
-    "build": "tsc",
+    "build": "tsc && cp ../.env* ./build/.env; cp package.json build/package.json",
     "init": "tsc --init"
   },
   "keywords": [],
