@@ -41,7 +41,9 @@ async function start() {
   if (env?.NODE_ENV === "production") {
     const staticPath = join(__dirname, "..", "dist", "public");
     app.use(BASE_PATH, express.static(staticPath));
-    app.get(BASE_PATH + "/*", (req, res) => res.sendFile(join(__dirname, "..", "dist" "public", "index.html")));
+    app.get(BASE_PATH + "/*", (req, res) =>
+      res.sendFile(join(__dirname, "..", "dist", "public", "index.html"))
+    );
   }
 
   server = app.listen(PORT, () => {
