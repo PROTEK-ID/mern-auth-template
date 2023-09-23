@@ -39,10 +39,10 @@ async function start() {
   defineApp(app);
 
   if (env?.NODE_ENV === "production") {
-    const staticPath = join(__dirname, "..", "dist", "public");
+    const staticPath = join(__dirname, "..", "generated", "public");
     app.use(BASE_PATH, express.static(staticPath));
     app.get(BASE_PATH + "/*", (req, res) =>
-      res.sendFile(join(__dirname, "..", "dist", "public", "index.html"))
+      res.sendFile(join(__dirname, "..", "generated", "public", "index.html"))
     );
   }
 
