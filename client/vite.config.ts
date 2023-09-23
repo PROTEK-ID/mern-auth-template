@@ -9,7 +9,7 @@ export default ({ mode }) => {
     plugins: [react()],
     base: process.env.VITE_BASENAME,
     build: {
-      outDir: "../server/dist/public",
+      outDir: "../server/build/generated/public",
       emptyOutDir: true,
       rollupOptions: {
         output: {
