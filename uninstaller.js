@@ -13,7 +13,7 @@ function uninstall(package, version) {
   return new Promise((resolve, reject) => {
     try {
       const stdout = execSync(
-        `npm uninstall -D ${package} --prefix server/build`,
+        `npm uninstall -D ${package} --prefix server/build --prefer-offline`,
         { encoding: "utf8" }
       );
       resolve(stdout);
