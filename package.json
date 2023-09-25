@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm start --prefix server",
     "build:client": "cp .env client/.env; npm run build --prefix client",
-    "build:server": "npm run build --prefix server && cp -r server/node_modules server/build/node_modules",
+    "build:server": "npm run build --prefix server && cp -r server/node_modules server/build/node_modules && node uninstaller.js",
     "build": "npm-run-all build:server build:client",
     "dev:client": "cp .env client/.env; npm run dev --prefix client",
     "dev:server": "npm run dev --prefix server",
