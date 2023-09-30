@@ -46,9 +46,28 @@ export const postUser = expressAsyncHandler(async (req, res) => {
       email,
       password: hashedPassword,
     });
-    res
-      .status(201)
-      .json({ message: "User successfully created", data: newUser.dataValues });
+
+    const id = newUser.getDataValue("id");
+
+    const accessToken = generateAccessToken({ id, username, email });
+    const refreshToken = generateRefreshToken({ id, username, email });
+
+    await User.update(
+      { refreshToken },
+      {
+        where: {
+          id,
+        },
+        silent: true,
+      }
+    );
+    res.cookie("refreshToken", refreshToken, {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+      secure: env?.NODE_ENV === "production" ? true : false,
+    });
+
+    res.status(201).json({ message: "User successfully created", accessToken });
   } catch (error) {
     throw error;
   }
